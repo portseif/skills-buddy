@@ -2,6 +2,13 @@
 
 **Every agent skill you have, kept up to date.**
 
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="docs/images/hero-dark.webp">
+    <img src="docs/images/hero-light.webp" alt="Skills Buddy listing installed skills with their agents, sources and status, and one skill with an update available in the inspector" width="880">
+  </picture>
+</p>
+
 A native macOS app for the skills your coding agents load. It finds every installed skill — for Claude Code, Codex, Cursor, Gemini CLI and the rest — shows where each one came from, and updates it from there. Built with SwiftUI on [BlissUI](https://github.com/portseif/bliss-ui).
 
 - **Every agent** — reads the skills of all 79 agents the [`skills` CLI](https://github.com/vercel-labs/skills) knows, plus the skills inside Claude Code plugins. A skill several agents share shows up once, with each agent that loads it.
