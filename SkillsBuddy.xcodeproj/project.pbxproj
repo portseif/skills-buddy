@@ -72,7 +72,6 @@
 		0006F0ADB9FDFFD2ABCD7DA7 /* SkillStatusPill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillStatusPill.swift; sourceTree = "<group>"; };
 		043DD7F8EF0D41030DB201B0 /* DisabledSkillStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisabledSkillStore.swift; sourceTree = "<group>"; };
 		0559E5B2818D2367410FACF4 /* OffMainThread.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffMainThread.swift; sourceTree = "<group>"; };
-		0C057728A49C79A035D82C1F /* bliss-ui */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "bliss-ui"; path = "../bliss-ui"; sourceTree = SOURCE_ROOT; };
 		0EA6139D27678FFB5A35D96D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		10960D0C4BE43F18049DEA96 /* SkillInspector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillInspector.swift; sourceTree = "<group>"; };
 		264ECDC1E0AD6FC5870E7CCD /* SkillsBuddyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SkillsBuddyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -223,19 +222,10 @@
 		7C754490EE541DC29BECD7AC = {
 			isa = PBXGroup;
 			children = (
-				9DA038E7D6EFEACCFC9FB320 /* Packages */,
 				A69637205A8204847D88D549 /* SkillsBuddy */,
 				21A944F12C40D6098FA4F01E /* SkillsBuddyTests */,
 				5D6FFD3EA8B3B347DDFEFB92 /* Products */,
 			);
-			sourceTree = "<group>";
-		};
-		9DA038E7D6EFEACCFC9FB320 /* Packages */ = {
-			isa = PBXGroup;
-			children = (
-				0C057728A49C79A035D82C1F /* bliss-ui */,
-			);
-			name = Packages;
 			sourceTree = "<group>";
 		};
 		A69637205A8204847D88D549 /* SkillsBuddy */ = {
@@ -349,7 +339,7 @@
 			mainGroup = 7C754490EE541DC29BECD7AC;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				42DBC539C8D16CC0F05E3D28 /* XCLocalSwiftPackageReference "../bliss-ui" */,
+				D85F0EF4F3645B63073AD836 /* XCRemoteSwiftPackageReference "bliss-ui" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 5D6FFD3EA8B3B347DDFEFB92 /* Products */;
@@ -691,16 +681,21 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCLocalSwiftPackageReference section */
-		42DBC539C8D16CC0F05E3D28 /* XCLocalSwiftPackageReference "../bliss-ui" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = "../bliss-ui";
+/* Begin XCRemoteSwiftPackageReference section */
+		D85F0EF4F3645B63073AD836 /* XCRemoteSwiftPackageReference "bliss-ui" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/portseif/bliss-ui.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
 		};
-/* End XCLocalSwiftPackageReference section */
+/* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
 		9F7A93FA7549C73AD66C86DB /* BlissUI */ = {
 			isa = XCSwiftPackageProductDependency;
+			package = D85F0EF4F3645B63073AD836 /* XCRemoteSwiftPackageReference "bliss-ui" */;
 			productName = BlissUI;
 		};
 /* End XCSwiftPackageProductDependency section */

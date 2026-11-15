@@ -32,10 +32,9 @@ A native macOS app for the skills your coding agents load. It finds every instal
 
 ## Building
 
-Skills Buddy builds against a BlissUI checkout next to it (`../bliss-ui`), since it uses components that aren't in a BlissUI release yet. Clone both into the same folder:
+BlissUI comes in as a Swift package from GitHub (`from: "2.0.0"`), so Xcode fetches it on the first build:
 
 ```bash
-git clone https://github.com/portseif/bliss-ui.git
 git clone https://github.com/portseif/skills-buddy.git
 open skills-buddy/SkillsBuddy.xcodeproj
 ```
@@ -48,6 +47,8 @@ xcodebuild -project SkillsBuddy.xcodeproj -scheme SkillsBuddy -configuration Deb
 ```
 
 The Xcode project is generated from `project.yml` with [XcodeGen](https://github.com/yonaskolb/XcodeGen) — run `xcodegen generate` after adding or removing files.
+
+To work on BlissUI at the same time, add your checkout with **File › Add Package Dependencies › Add Local…** — a local package overrides the 2.0.0 release until you remove it (or `xcodegen generate` does).
 
 The app isn't sandboxed: it reads `~/.claude` and `~/.agents`, moves skill folders, and runs `git`, `npx` and `gh`.
 

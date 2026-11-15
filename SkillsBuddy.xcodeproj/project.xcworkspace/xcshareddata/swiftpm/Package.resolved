@@ -1,0 +1,15 @@
+{
+  "originHash" : "a2db39c62987e5d9a7509f809cad8f8dd32430b9d27c41e102a614f5975584e0",
+  "pins" : [
+    {
+      "identity" : "bliss-ui",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/portseif/bliss-ui.git",
+      "state" : {
+        "revision" : "b0394f0f8ed3faba05b1cfa459e87ff2c93c2d79",
+        "version" : "2.0.0"
+      }
+    }
+  ],
+  "version" : 3
+}

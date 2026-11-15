@@ -8,10 +8,8 @@ options:
 
 packages:
   BlissUI:
-    # The local checkout: CommitGraph, WindowTitleBar and the collapsible Sidebar
-    # aren't in a release yet. Switch back to the GitHub URL with `from:` once
-    # one includes them.
-    path: ../bliss-ui
+    url: https://github.com/portseif/bliss-ui.git
+    from: 2.0.0
 
 settings:
   base:
