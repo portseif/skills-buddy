@@ -1,6 +1,10 @@
-# Skills Buddy
+<p align="center">
+  <img src="SkillsBuddy/Resources/Assets.xcassets/AppIcon.appiconset/icon-256.png" alt="Skills Buddy app icon" width="128" height="128">
+</p>
 
-**Every agent skill you have, kept up to date.**
+<h1 align="center">Skills Buddy</h1>
+
+<p align="center"><strong>Every agent skill you have, kept up to date.</strong></p>
 
 <p align="center">
   <picture>
