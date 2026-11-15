@@ -1,0 +1,701 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0966827E14315D98A1F32AED /* OffMainThreadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3278C644830B247E95457EEA /* OffMainThreadTests.swift */; };
+		0C0E229A7C47D6BEA653D832 /* SkillFrontmatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F70A2B557D4CCBEF89018B /* SkillFrontmatter.swift */; };
+		0C23D13DB051951B47CEEA3C /* SkillsCLI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A40014D1C86FE2C0C8AFD2D /* SkillsCLI.swift */; };
+		0C953219142CCDF25563BFC1 /* SkillScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBEFF7257F424BCA2D70F92 /* SkillScanner.swift */; };
+		156FEE2AEA56FD3F7904BDDA /* SkillLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5617B0DF270CC84E83DB6381 /* SkillLibrary.swift */; };
+		1E0A69ADB6F81E888308822D /* SkillsBuddyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDB4CDF8F2A7AD567B0C8E1 /* SkillsBuddyApp.swift */; };
+		20B5B350B144804D61DCB4C2 /* SkillInspector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10960D0C4BE43F18049DEA96 /* SkillInspector.swift */; };
+		21F6A74259775B27A545943A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3BA3E61B0518487FE1997F1 /* Assets.xcassets */; };
+		22B36486075E6C15079D1F92 /* Agents.json in Resources */ = {isa = PBXBuildFile; fileRef = D9630D58943CE5A2240F3B42 /* Agents.json */; };
+		33464E55C4B78514319BFD2F /* DisabledSkillStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0605793A39C16B645FA59B /* DisabledSkillStoreTests.swift */; };
+		39AD5CB9352E03D968B1F25F /* SkillStatusPill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0006F0ADB9FDFFD2ABCD7DA7 /* SkillStatusPill.swift */; };
+		3D48C0DE15485A3CE641BC7A /* LibrarySidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF59FFDC2D9D2AC303E4530 /* LibrarySidebar.swift */; };
+		3D8617BC487FA9FC218E25E0 /* GitHubSkillSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314C8C36F4195B01CBA112D4 /* GitHubSkillSearch.swift */; };
+		3F2BBE590E2DB0A73B422E3D /* FilterHistoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779EB4C2C880D0E5DA00E179 /* FilterHistoryTests.swift */; };
+		45835D920182C3C6E640138C /* SettingsViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF5294E067B116950A6BE19 /* SettingsViews.swift */; };
+		472B66547C5BB6A819027F4C /* SkillHistorySheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D53267737A832D8981E41D /* SkillHistorySheet.swift */; };
+		476B0208C4F68A9A09D89462 /* CommandRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC37948640435A129ACD3E37 /* CommandRunner.swift */; };
+		4B4739E3185AFD0ADD1E1F6D /* SkillSourceBrowser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F461881AF759704ABA433600 /* SkillSourceBrowser.swift */; };
+		4BB40367A1DDEDCC42CE9B3E /* ParsingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E3E0DA2593376E31CDCB53 /* ParsingTests.swift */; };
+		504B7D38C184157FDBD3A8BD /* SkillListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276CF80A8177C2AA36678FE5 /* SkillListView.swift */; };
+		523F8F0F8F8D1904ACCEDD37 /* InstallSkillSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE91955A2AF6DCF2FCE97515 /* InstallSkillSheet.swift */; };
+		5DB59DAA530A256C1592D200 /* AgentRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DA022388A3C9FCB96CA864 /* AgentRegistry.swift */; };
+		6FA7F667CDAB655ECD190120 /* RepoFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB51C0B2D3D778F3B9ACC4F /* RepoFinder.swift */; };
+		76E310D6B11324D4F32EF8FA /* SkillHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A09C404D043ACFAF358A9A /* SkillHistory.swift */; };
+		7BA3DD5AB590919AEDE72020 /* AgentLogoStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD0DABBCE644B7425B4ABF7 /* AgentLogoStore.swift */; };
+		7DAAD0AF2D62817F3510411E /* GitTrackingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94ABBE1EAC4860944D30455A /* GitTrackingTests.swift */; };
+		8C2FA1AE2CD0B8B420DB181D /* ShellEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D518FB885BC6DE494A3089D8 /* ShellEnvironment.swift */; };
+		8DCE5491CD2DCE1EE01F572D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA6139D27678FFB5A35D96D /* ContentView.swift */; };
+		8E336EC8401B64CCF2F0E89E /* BlissUI in Frameworks */ = {isa = PBXBuildFile; productRef = 9F7A93FA7549C73AD66C86DB /* BlissUI */; };
+		8F2897DE6F55FCD25FD46717 /* DisabledSkillStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043DD7F8EF0D41030DB201B0 /* DisabledSkillStore.swift */; };
+		979C1576C291AD22AFAD8423 /* SkillLockFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24F1BB471E2FACD7B1D4031 /* SkillLockFile.swift */; };
+		A6152A63F862045BC00B127A /* SkillHistoryReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F86DA5729EF93D89254964 /* SkillHistoryReader.swift */; };
+		B9D38FCA5B218F340DE67C55 /* GitClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B089E54B5F235AE51E5CE3A /* GitClient.swift */; };
+		BBAA8C01A55C94A1ABC65BCD /* OffMainThread.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0559E5B2818D2367410FACF4 /* OffMainThread.swift */; };
+		C555E50AEAACB621B35447BB /* SkillUsageReaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83F3751FE29EA72A92CAFB8 /* SkillUsageReaderTests.swift */; };
+		C8B1CC38C8C5CD17EC60918F /* AppleIntelligenceAdvisor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C702D8D77DFE969DBB4CE0AC /* AppleIntelligenceAdvisor.swift */; };
+		CAC9DBBF9F7442426BB619CF /* FindRepositoriesSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1900AEE9C37F92748F79AA /* FindRepositoriesSheet.swift */; };
+		CB93B19520D10F49236AD3C1 /* SkillRepoMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894403ED580AEF79E962F90E /* SkillRepoMatcher.swift */; };
+		D13C7C48698D1B222D1661F5 /* FilterHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48484214B69F1C7520C0C7AA /* FilterHistory.swift */; };
+		D712651683D9B39D902B7A01 /* PreviewSamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9226CAD6CBFF075AD05EE860 /* PreviewSamples.swift */; };
+		DD37996B5DDB3173A0E8EB37 /* SkillsBuddyTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BDE7D1084C5BC3F47CC7C3 /* SkillsBuddyTheme.swift */; };
+		E0B0AE884ABF997806BEE7B6 /* CompactTooltip.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F36EC68FE7DEF17DBE70B4 /* CompactTooltip.swift */; };
+		E18DD5E370E1769B3A37D3DD /* RepoFinderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EBB99121378B429BE8FB65 /* RepoFinderTests.swift */; };
+		E68869A7BAE089CFEC996CF5 /* LibraryFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630A3581F9E1253E6B4D59B0 /* LibraryFilter.swift */; };
+		FBF0CA55BB2E6BE082294802 /* Skill.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35FF137132FCBE5582C6B8E /* Skill.swift */; };
+		FF91AC82E30929BBD6564615 /* AttachRepositorySheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD3EFC17F6D63B3E9E26C12 /* AttachRepositorySheet.swift */; };
+		FFDC897BC0E6824804F9B15D /* SkillUsageReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0F85DD74EFA39D503B1255 /* SkillUsageReader.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		123EF2323EC837DE23191416 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E6D2B90F4156F3850D277FE4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 800E7D1C99D77E6C9BB289B1;
+			remoteInfo = SkillsBuddy;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0006F0ADB9FDFFD2ABCD7DA7 /* SkillStatusPill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillStatusPill.swift; sourceTree = "<group>"; };
+		043DD7F8EF0D41030DB201B0 /* DisabledSkillStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisabledSkillStore.swift; sourceTree = "<group>"; };
+		0559E5B2818D2367410FACF4 /* OffMainThread.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffMainThread.swift; sourceTree = "<group>"; };
+		0C057728A49C79A035D82C1F /* bliss-ui */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "bliss-ui"; path = "../bliss-ui"; sourceTree = SOURCE_ROOT; };
+		0EA6139D27678FFB5A35D96D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		10960D0C4BE43F18049DEA96 /* SkillInspector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillInspector.swift; sourceTree = "<group>"; };
+		264ECDC1E0AD6FC5870E7CCD /* SkillsBuddyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SkillsBuddyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		276CF80A8177C2AA36678FE5 /* SkillListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillListView.swift; sourceTree = "<group>"; };
+		2A1900AEE9C37F92748F79AA /* FindRepositoriesSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindRepositoriesSheet.swift; sourceTree = "<group>"; };
+		2CDB4CDF8F2A7AD567B0C8E1 /* SkillsBuddyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillsBuddyApp.swift; sourceTree = "<group>"; };
+		314C8C36F4195B01CBA112D4 /* GitHubSkillSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubSkillSearch.swift; sourceTree = "<group>"; };
+		3278C644830B247E95457EEA /* OffMainThreadTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffMainThreadTests.swift; sourceTree = "<group>"; };
+		3B0605793A39C16B645FA59B /* DisabledSkillStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisabledSkillStoreTests.swift; sourceTree = "<group>"; };
+		48484214B69F1C7520C0C7AA /* FilterHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterHistory.swift; sourceTree = "<group>"; };
+		4AB51C0B2D3D778F3B9ACC4F /* RepoFinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoFinder.swift; sourceTree = "<group>"; };
+		4B089E54B5F235AE51E5CE3A /* GitClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitClient.swift; sourceTree = "<group>"; };
+		4C547D2A0AA97EDD6D8F9C20 /* SkillsBuddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SkillsBuddy.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5617B0DF270CC84E83DB6381 /* SkillLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillLibrary.swift; sourceTree = "<group>"; };
+		630A3581F9E1253E6B4D59B0 /* LibraryFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryFilter.swift; sourceTree = "<group>"; };
+		69F86DA5729EF93D89254964 /* SkillHistoryReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillHistoryReader.swift; sourceTree = "<group>"; };
+		6A40014D1C86FE2C0C8AFD2D /* SkillsCLI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillsCLI.swift; sourceTree = "<group>"; };
+		779EB4C2C880D0E5DA00E179 /* FilterHistoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterHistoryTests.swift; sourceTree = "<group>"; };
+		7A0F85DD74EFA39D503B1255 /* SkillUsageReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillUsageReader.swift; sourceTree = "<group>"; };
+		7FD3EFC17F6D63B3E9E26C12 /* AttachRepositorySheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttachRepositorySheet.swift; sourceTree = "<group>"; };
+		81DA022388A3C9FCB96CA864 /* AgentRegistry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentRegistry.swift; sourceTree = "<group>"; };
+		894403ED580AEF79E962F90E /* SkillRepoMatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillRepoMatcher.swift; sourceTree = "<group>"; };
+		8CF5294E067B116950A6BE19 /* SettingsViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViews.swift; sourceTree = "<group>"; };
+		90D53267737A832D8981E41D /* SkillHistorySheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillHistorySheet.swift; sourceTree = "<group>"; };
+		9226CAD6CBFF075AD05EE860 /* PreviewSamples.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewSamples.swift; sourceTree = "<group>"; };
+		94ABBE1EAC4860944D30455A /* GitTrackingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitTrackingTests.swift; sourceTree = "<group>"; };
+		9FF59FFDC2D9D2AC303E4530 /* LibrarySidebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibrarySidebar.swift; sourceTree = "<group>"; };
+		A2F36EC68FE7DEF17DBE70B4 /* CompactTooltip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompactTooltip.swift; sourceTree = "<group>"; };
+		A3BA3E61B0518487FE1997F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AC46D3F500F6236353A7085D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		AFD0DABBCE644B7425B4ABF7 /* AgentLogoStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentLogoStore.swift; sourceTree = "<group>"; };
+		B24F1BB471E2FACD7B1D4031 /* SkillLockFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillLockFile.swift; sourceTree = "<group>"; };
+		B2A09C404D043ACFAF358A9A /* SkillHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillHistory.swift; sourceTree = "<group>"; };
+		C702D8D77DFE969DBB4CE0AC /* AppleIntelligenceAdvisor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleIntelligenceAdvisor.swift; sourceTree = "<group>"; };
+		C83F3751FE29EA72A92CAFB8 /* SkillUsageReaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillUsageReaderTests.swift; sourceTree = "<group>"; };
+		D35FF137132FCBE5582C6B8E /* Skill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Skill.swift; sourceTree = "<group>"; };
+		D4EBB99121378B429BE8FB65 /* RepoFinderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoFinderTests.swift; sourceTree = "<group>"; };
+		D518FB885BC6DE494A3089D8 /* ShellEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShellEnvironment.swift; sourceTree = "<group>"; };
+		D9630D58943CE5A2240F3B42 /* Agents.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Agents.json; sourceTree = "<group>"; };
+		E0F70A2B557D4CCBEF89018B /* SkillFrontmatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillFrontmatter.swift; sourceTree = "<group>"; };
+		E1BDE7D1084C5BC3F47CC7C3 /* SkillsBuddyTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillsBuddyTheme.swift; sourceTree = "<group>"; };
+		E7E3E0DA2593376E31CDCB53 /* ParsingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsingTests.swift; sourceTree = "<group>"; };
+		EE91955A2AF6DCF2FCE97515 /* InstallSkillSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstallSkillSheet.swift; sourceTree = "<group>"; };
+		F461881AF759704ABA433600 /* SkillSourceBrowser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillSourceBrowser.swift; sourceTree = "<group>"; };
+		FC37948640435A129ACD3E37 /* CommandRunner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandRunner.swift; sourceTree = "<group>"; };
+		FFBEFF7257F424BCA2D70F92 /* SkillScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillScanner.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		03C6CEFEC8CA0F4D58A7C4BA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8E336EC8401B64CCF2F0E89E /* BlissUI in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		00E49AD493325CB7C2FD64E1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				81DA022388A3C9FCB96CA864 /* AgentRegistry.swift */,
+				48484214B69F1C7520C0C7AA /* FilterHistory.swift */,
+				630A3581F9E1253E6B4D59B0 /* LibraryFilter.swift */,
+				D35FF137132FCBE5582C6B8E /* Skill.swift */,
+				B2A09C404D043ACFAF358A9A /* SkillHistory.swift */,
+				B24F1BB471E2FACD7B1D4031 /* SkillLockFile.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		135D66759E3AF1F799561F80 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D9630D58943CE5A2240F3B42 /* Agents.json */,
+				A3BA3E61B0518487FE1997F1 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		21A944F12C40D6098FA4F01E /* SkillsBuddyTests */ = {
+			isa = PBXGroup;
+			children = (
+				3B0605793A39C16B645FA59B /* DisabledSkillStoreTests.swift */,
+				779EB4C2C880D0E5DA00E179 /* FilterHistoryTests.swift */,
+				94ABBE1EAC4860944D30455A /* GitTrackingTests.swift */,
+				3278C644830B247E95457EEA /* OffMainThreadTests.swift */,
+				E7E3E0DA2593376E31CDCB53 /* ParsingTests.swift */,
+				D4EBB99121378B429BE8FB65 /* RepoFinderTests.swift */,
+				C83F3751FE29EA72A92CAFB8 /* SkillUsageReaderTests.swift */,
+			);
+			path = SkillsBuddyTests;
+			sourceTree = "<group>";
+		};
+		3AC346A672FC9FBB68A23F08 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				C702D8D77DFE969DBB4CE0AC /* AppleIntelligenceAdvisor.swift */,
+				FC37948640435A129ACD3E37 /* CommandRunner.swift */,
+				043DD7F8EF0D41030DB201B0 /* DisabledSkillStore.swift */,
+				4B089E54B5F235AE51E5CE3A /* GitClient.swift */,
+				314C8C36F4195B01CBA112D4 /* GitHubSkillSearch.swift */,
+				0559E5B2818D2367410FACF4 /* OffMainThread.swift */,
+				D518FB885BC6DE494A3089D8 /* ShellEnvironment.swift */,
+				E0F70A2B557D4CCBEF89018B /* SkillFrontmatter.swift */,
+				69F86DA5729EF93D89254964 /* SkillHistoryReader.swift */,
+				894403ED580AEF79E962F90E /* SkillRepoMatcher.swift */,
+				FFBEFF7257F424BCA2D70F92 /* SkillScanner.swift */,
+				6A40014D1C86FE2C0C8AFD2D /* SkillsCLI.swift */,
+				F461881AF759704ABA433600 /* SkillSourceBrowser.swift */,
+				7A0F85DD74EFA39D503B1255 /* SkillUsageReader.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		53EE9F3AEFE1193C02656A3A /* App */ = {
+			isa = PBXGroup;
+			children = (
+				2CDB4CDF8F2A7AD567B0C8E1 /* SkillsBuddyApp.swift */,
+				E1BDE7D1084C5BC3F47CC7C3 /* SkillsBuddyTheme.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		5D6FFD3EA8B3B347DDFEFB92 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4C547D2A0AA97EDD6D8F9C20 /* SkillsBuddy.app */,
+				264ECDC1E0AD6FC5870E7CCD /* SkillsBuddyTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		75C86EB23378BA1DECC018EA /* Preview */ = {
+			isa = PBXGroup;
+			children = (
+				9226CAD6CBFF075AD05EE860 /* PreviewSamples.swift */,
+			);
+			path = Preview;
+			sourceTree = "<group>";
+		};
+		7C754490EE541DC29BECD7AC = {
+			isa = PBXGroup;
+			children = (
+				9DA038E7D6EFEACCFC9FB320 /* Packages */,
+				A69637205A8204847D88D549 /* SkillsBuddy */,
+				21A944F12C40D6098FA4F01E /* SkillsBuddyTests */,
+				5D6FFD3EA8B3B347DDFEFB92 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9DA038E7D6EFEACCFC9FB320 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				0C057728A49C79A035D82C1F /* bliss-ui */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
+		A69637205A8204847D88D549 /* SkillsBuddy */ = {
+			isa = PBXGroup;
+			children = (
+				AC46D3F500F6236353A7085D /* Info.plist */,
+				53EE9F3AEFE1193C02656A3A /* App */,
+				00E49AD493325CB7C2FD64E1 /* Models */,
+				75C86EB23378BA1DECC018EA /* Preview */,
+				135D66759E3AF1F799561F80 /* Resources */,
+				3AC346A672FC9FBB68A23F08 /* Services */,
+				FCC0F076F710E76360D84303 /* Stores */,
+				CE254D82B36407DD4D682A07 /* Views */,
+			);
+			path = SkillsBuddy;
+			sourceTree = "<group>";
+		};
+		CE254D82B36407DD4D682A07 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7FD3EFC17F6D63B3E9E26C12 /* AttachRepositorySheet.swift */,
+				A2F36EC68FE7DEF17DBE70B4 /* CompactTooltip.swift */,
+				0EA6139D27678FFB5A35D96D /* ContentView.swift */,
+				2A1900AEE9C37F92748F79AA /* FindRepositoriesSheet.swift */,
+				EE91955A2AF6DCF2FCE97515 /* InstallSkillSheet.swift */,
+				9FF59FFDC2D9D2AC303E4530 /* LibrarySidebar.swift */,
+				8CF5294E067B116950A6BE19 /* SettingsViews.swift */,
+				90D53267737A832D8981E41D /* SkillHistorySheet.swift */,
+				10960D0C4BE43F18049DEA96 /* SkillInspector.swift */,
+				276CF80A8177C2AA36678FE5 /* SkillListView.swift */,
+				0006F0ADB9FDFFD2ABCD7DA7 /* SkillStatusPill.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		FCC0F076F710E76360D84303 /* Stores */ = {
+			isa = PBXGroup;
+			children = (
+				AFD0DABBCE644B7425B4ABF7 /* AgentLogoStore.swift */,
+				4AB51C0B2D3D778F3B9ACC4F /* RepoFinder.swift */,
+				5617B0DF270CC84E83DB6381 /* SkillLibrary.swift */,
+			);
+			path = Stores;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0BF8732BA0917627C99F2514 /* SkillsBuddyTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F6CEA6B26CC60BE5FAE27E43 /* Build configuration list for PBXNativeTarget "SkillsBuddyTests" */;
+			buildPhases = (
+				20491659D0154A1970BB5B10 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				53E49E39CF53F992771A98A4 /* PBXTargetDependency */,
+			);
+			name = SkillsBuddyTests;
+			packageProductDependencies = (
+			);
+			productName = SkillsBuddyTests;
+			productReference = 264ECDC1E0AD6FC5870E7CCD /* SkillsBuddyTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		800E7D1C99D77E6C9BB289B1 /* SkillsBuddy */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4C31EBD913FF9321873D6B07 /* Build configuration list for PBXNativeTarget "SkillsBuddy" */;
+			buildPhases = (
+				FC507ECB941108740EDCBE90 /* Sources */,
+				D7B5CF668CFC515066DB3721 /* Resources */,
+				03C6CEFEC8CA0F4D58A7C4BA /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SkillsBuddy;
+			packageProductDependencies = (
+				9F7A93FA7549C73AD66C86DB /* BlissUI */,
+			);
+			productName = SkillsBuddy;
+			productReference = 4C547D2A0AA97EDD6D8F9C20 /* SkillsBuddy.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E6D2B90F4156F3850D277FE4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					0BF8732BA0917627C99F2514 = {
+						ProvisioningStyle = Manual;
+					};
+					800E7D1C99D77E6C9BB289B1 = {
+						ProvisioningStyle = Manual;
+					};
+				};
+			};
+			buildConfigurationList = ECB59D1BAF00F187B196EE72 /* Build configuration list for PBXProject "SkillsBuddy" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 7C754490EE541DC29BECD7AC;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				42DBC539C8D16CC0F05E3D28 /* XCLocalSwiftPackageReference "../bliss-ui" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 5D6FFD3EA8B3B347DDFEFB92 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				800E7D1C99D77E6C9BB289B1 /* SkillsBuddy */,
+				0BF8732BA0917627C99F2514 /* SkillsBuddyTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D7B5CF668CFC515066DB3721 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				22B36486075E6C15079D1F92 /* Agents.json in Resources */,
+				21F6A74259775B27A545943A /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		20491659D0154A1970BB5B10 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				33464E55C4B78514319BFD2F /* DisabledSkillStoreTests.swift in Sources */,
+				3F2BBE590E2DB0A73B422E3D /* FilterHistoryTests.swift in Sources */,
+				7DAAD0AF2D62817F3510411E /* GitTrackingTests.swift in Sources */,
+				0966827E14315D98A1F32AED /* OffMainThreadTests.swift in Sources */,
+				4BB40367A1DDEDCC42CE9B3E /* ParsingTests.swift in Sources */,
+				E18DD5E370E1769B3A37D3DD /* RepoFinderTests.swift in Sources */,
+				C555E50AEAACB621B35447BB /* SkillUsageReaderTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FC507ECB941108740EDCBE90 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7BA3DD5AB590919AEDE72020 /* AgentLogoStore.swift in Sources */,
+				5DB59DAA530A256C1592D200 /* AgentRegistry.swift in Sources */,
+				C8B1CC38C8C5CD17EC60918F /* AppleIntelligenceAdvisor.swift in Sources */,
+				FF91AC82E30929BBD6564615 /* AttachRepositorySheet.swift in Sources */,
+				476B0208C4F68A9A09D89462 /* CommandRunner.swift in Sources */,
+				E0B0AE884ABF997806BEE7B6 /* CompactTooltip.swift in Sources */,
+				8DCE5491CD2DCE1EE01F572D /* ContentView.swift in Sources */,
+				8F2897DE6F55FCD25FD46717 /* DisabledSkillStore.swift in Sources */,
+				D13C7C48698D1B222D1661F5 /* FilterHistory.swift in Sources */,
+				CAC9DBBF9F7442426BB619CF /* FindRepositoriesSheet.swift in Sources */,
+				B9D38FCA5B218F340DE67C55 /* GitClient.swift in Sources */,
+				3D8617BC487FA9FC218E25E0 /* GitHubSkillSearch.swift in Sources */,
+				523F8F0F8F8D1904ACCEDD37 /* InstallSkillSheet.swift in Sources */,
+				E68869A7BAE089CFEC996CF5 /* LibraryFilter.swift in Sources */,
+				3D48C0DE15485A3CE641BC7A /* LibrarySidebar.swift in Sources */,
+				BBAA8C01A55C94A1ABC65BCD /* OffMainThread.swift in Sources */,
+				D712651683D9B39D902B7A01 /* PreviewSamples.swift in Sources */,
+				6FA7F667CDAB655ECD190120 /* RepoFinder.swift in Sources */,
+				45835D920182C3C6E640138C /* SettingsViews.swift in Sources */,
+				8C2FA1AE2CD0B8B420DB181D /* ShellEnvironment.swift in Sources */,
+				FBF0CA55BB2E6BE082294802 /* Skill.swift in Sources */,
+				0C0E229A7C47D6BEA653D832 /* SkillFrontmatter.swift in Sources */,
+				76E310D6B11324D4F32EF8FA /* SkillHistory.swift in Sources */,
+				A6152A63F862045BC00B127A /* SkillHistoryReader.swift in Sources */,
+				472B66547C5BB6A819027F4C /* SkillHistorySheet.swift in Sources */,
+				20B5B350B144804D61DCB4C2 /* SkillInspector.swift in Sources */,
+				156FEE2AEA56FD3F7904BDDA /* SkillLibrary.swift in Sources */,
+				504B7D38C184157FDBD3A8BD /* SkillListView.swift in Sources */,
+				979C1576C291AD22AFAD8423 /* SkillLockFile.swift in Sources */,
+				CB93B19520D10F49236AD3C1 /* SkillRepoMatcher.swift in Sources */,
+				0C953219142CCDF25563BFC1 /* SkillScanner.swift in Sources */,
+				4B4739E3185AFD0ADD1E1F6D /* SkillSourceBrowser.swift in Sources */,
+				39AD5CB9352E03D968B1F25F /* SkillStatusPill.swift in Sources */,
+				FFDC897BC0E6824804F9B15D /* SkillUsageReader.swift in Sources */,
+				1E0A69ADB6F81E888308822D /* SkillsBuddyApp.swift in Sources */,
+				DD37996B5DDB3173A0E8EB37 /* SkillsBuddyTheme.swift in Sources */,
+				0C23D13DB051951B47CEEA3C /* SkillsCLI.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		53E49E39CF53F992771A98A4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 800E7D1C99D77E6C9BB289B1 /* SkillsBuddy */;
+			targetProxy = 123EF2323EC837DE23191416 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		07F6C0A74DCB6B561ACBB676 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Manual;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				MARKETING_VERSION = 0.1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		3119536114B83EBB23A7BBA1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = io.portseif.SkillsBuddyTests;
+				SDKROOT = macosx;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Skills Buddy.app/Contents/MacOS/Skills Buddy";
+			};
+			name = Release;
+		};
+		88CD0367B6E988816FAEA53A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = io.portseif.SkillsBuddyTests;
+				SDKROOT = macosx;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Skills Buddy.app/Contents/MacOS/Skills Buddy";
+			};
+			name = Debug;
+		};
+		9F713D0B34AE173EE14BAFDE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_APP_SANDBOX = NO;
+				ENABLE_HARDENED_RUNTIME = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SkillsBuddy/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"-weak_framework",
+					FoundationModels,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = io.portseif.SkillsBuddy;
+				PRODUCT_NAME = "Skills Buddy";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		A59A4B83EB454215F553CD0C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Manual;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				MARKETING_VERSION = 0.1.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		DF17AD0CD6E359F2E47300F2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_APP_SANDBOX = NO;
+				ENABLE_HARDENED_RUNTIME = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SkillsBuddy/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"-weak_framework",
+					FoundationModels,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = io.portseif.SkillsBuddy;
+				PRODUCT_NAME = "Skills Buddy";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4C31EBD913FF9321873D6B07 /* Build configuration list for PBXNativeTarget "SkillsBuddy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9F713D0B34AE173EE14BAFDE /* Debug */,
+				DF17AD0CD6E359F2E47300F2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		ECB59D1BAF00F187B196EE72 /* Build configuration list for PBXProject "SkillsBuddy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				07F6C0A74DCB6B561ACBB676 /* Debug */,
+				A59A4B83EB454215F553CD0C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		F6CEA6B26CC60BE5FAE27E43 /* Build configuration list for PBXNativeTarget "SkillsBuddyTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				88CD0367B6E988816FAEA53A /* Debug */,
+				3119536114B83EBB23A7BBA1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		42DBC539C8D16CC0F05E3D28 /* XCLocalSwiftPackageReference "../bliss-ui" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = "../bliss-ui";
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9F7A93FA7549C73AD66C86DB /* BlissUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = BlissUI;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = E6D2B90F4156F3850D277FE4 /* Project object */;
+}

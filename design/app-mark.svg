@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="824" height="824" viewBox="100 100 824 824">
+  <defs>
+    <linearGradient id="tile" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#A78BFA"/>
+      <stop offset="0.55" stop-color="#7C3AED"/>
+      <stop offset="1" stop-color="#4C1D95"/>
+    </linearGradient>
+    <linearGradient id="gloss" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.28"/>
+      <stop offset="0.5" stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="face" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#E9E3FF"/>
+    </linearGradient>
+    <linearGradient id="spark" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FEF08A"/>
+      <stop offset="1" stop-color="#F59E0B"/>
+    </linearGradient>
+  </defs>
+  <rect x="100" y="100" width="824" height="824" rx="185" fill="url(#tile)"/>
+  <rect x="100" y="100" width="824" height="824" rx="185" fill="url(#gloss)"/>
+  <!-- antenna -->
+  <rect x="500" y="262" width="24" height="110" rx="12" fill="#FFFFFF"/>
+  <path fill="url(#spark)" d="M512 150 C520 198 534 212 582 220 C534 228 520 242 512 290 C504 242 490 228 442 220 C490 212 504 198 512 150 Z"/>
+  <!-- ears -->
+  <rect x="214" y="500" width="64" height="150" rx="32" fill="#E9E3FF"/>
+  <rect x="746" y="500" width="64" height="150" rx="32" fill="#E9E3FF"/>
+  <!-- head shadow and head -->
+  <rect x="262" y="384" width="500" height="410" rx="128" fill="#2E1065" fill-opacity="0.35"/>
+  <rect x="262" y="364" width="500" height="410" rx="128" fill="url(#face)"/>
+  <!-- eyes -->
+  <rect x="378" y="482" width="72" height="116" rx="36" fill="#312E81"/>
+  <rect x="574" y="482" width="72" height="116" rx="36" fill="#312E81"/>
+  <circle cx="402" cy="510" r="13" fill="#FFFFFF"/>
+  <circle cx="598" cy="510" r="13" fill="#FFFFFF"/>
+  <!-- cheeks -->
+  <circle cx="340" cy="650" r="26" fill="#F472B6" fill-opacity="0.55"/>
+  <circle cx="684" cy="650" r="26" fill="#F472B6" fill-opacity="0.55"/>
+  <!-- smile -->
+  <path d="M446 652 Q512 706 578 652" fill="none" stroke="#312E81" stroke-width="26" stroke-linecap="round"/>
+</svg>

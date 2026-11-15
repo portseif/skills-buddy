@@ -1,0 +1,81 @@
+name: SkillsBuddy
+
+options:
+  bundleIdPrefix: io.portseif
+  deploymentTarget:
+    macOS: "15.0"
+  createIntermediateGroups: true
+
+packages:
+  BlissUI:
+    # The local checkout: CommitGraph, WindowTitleBar and the collapsible Sidebar
+    # aren't in a release yet. Switch back to the GitHub URL with `from:` once
+    # one includes them.
+    path: ../bliss-ui
+
+settings:
+  base:
+    MARKETING_VERSION: 0.1.0
+    CURRENT_PROJECT_VERSION: 1
+    # Match BlissUI's settings: Swift 5 mode, main-actor by default, approachable concurrency.
+    SWIFT_VERSION: "5.0"
+    SWIFT_DEFAULT_ACTOR_ISOLATION: MainActor
+    SWIFT_APPROACHABLE_CONCURRENCY: YES
+    SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY: YES
+    CODE_SIGN_IDENTITY: "-"
+    CODE_SIGN_STYLE: Manual
+
+targets:
+  SkillsBuddy:
+    type: application
+    platform: macOS
+    sources:
+      - SkillsBuddy
+    dependencies:
+      - package: BlissUI
+    info:
+      path: SkillsBuddy/Info.plist
+      properties:
+        CFBundleDisplayName: Skills Buddy
+        LSApplicationCategoryType: public.app-category.developer-tools
+        NSHumanReadableCopyright: ""
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: io.portseif.SkillsBuddy
+        PRODUCT_NAME: Skills Buddy
+        # Reads ~/.claude and ~/.agents and runs git/npx, so it can't be sandboxed.
+        ENABLE_APP_SANDBOX: NO
+        ENABLE_HARDENED_RUNTIME: NO
+        GENERATE_INFOPLIST_FILE: YES
+        # Rendered from design/app-icon.svg by scripts/render-app-icon.sh.
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        # Apple Intelligence (macOS 26) helps the repo finder; weak-linked so the
+        # app still launches on macOS 15, where the finder skips it.
+        OTHER_LDFLAGS: ["-weak_framework", "FoundationModels"]
+
+  SkillsBuddyTests:
+    type: bundle.unit-test
+    platform: macOS
+    sources:
+      - SkillsBuddyTests
+    dependencies:
+      - target: SkillsBuddy
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: io.portseif.SkillsBuddyTests
+        GENERATE_INFOPLIST_FILE: YES
+        BUNDLE_LOADER: "$(TEST_HOST)"
+        TEST_HOST: "$(BUILT_PRODUCTS_DIR)/Skills Buddy.app/Contents/MacOS/Skills Buddy"
+
+schemes:
+  SkillsBuddy:
+    build:
+      targets:
+        SkillsBuddy: all
+        SkillsBuddyTests: [test]
+    run:
+      config: Debug
+    test:
+      config: Debug
+      targets:
+        - SkillsBuddyTests
