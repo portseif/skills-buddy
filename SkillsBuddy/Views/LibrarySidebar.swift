@@ -30,7 +30,7 @@ struct LibrarySidebar: View {
                     SidebarDivider()
                     SidebarSection("Agents") {
                         ForEach(library.agentSkillCounts, id: \.agentName) { entry in
-                            SidebarRow(.verbatim(entry.agentName), icon: "icon-robot", value: LibraryFilter.agent(entry.agentName), count: entry.count)
+                            AgentSidebarRow(agentName: entry.agentName, count: entry.count)
                         }
                     }
                 }
@@ -63,6 +63,20 @@ struct LibrarySidebar: View {
         // pulling up by that much puts the first row level with the top of the
         // content panel beside it.
         .padding(.top, -Spacing.xs)
+    }
+}
+
+/// An agent's row: its logo in one color once it loads, else the robot.
+private struct AgentSidebarRow: View {
+    let agentName: String
+    let count: Int
+
+    var body: some View {
+        if let mark = AgentLogoStore.shared.mark(forAgentNamed: agentName) {
+            SidebarRow(.verbatim(agentName), image: mark, value: LibraryFilter.agent(agentName), count: count)
+        } else {
+            SidebarRow(.verbatim(agentName), icon: "icon-robot", value: LibraryFilter.agent(agentName), count: count)
+        }
     }
 }
 

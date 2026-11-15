@@ -6,7 +6,8 @@
 //  (consistent 64×64 PNGs), fetched once and kept in
 //  ~/Library/Caches/io.portseif.SkillsBuddy/AgentLogos. Only the agent's
 //  domain is sent. Agents without a known homepage, or whose icon can't be
-//  fetched, fall back to the avatar's initials.
+//  fetched, fall back to the avatar's initials. Each logo also has a
+//  one-color mark (`LogoMark`) for the sidebar.
 //
 
 import AppKit
@@ -19,6 +20,8 @@ final class AgentLogoStore {
 
     /// Loaded logos by agent key.
     private var logos: [String: NSImage] = [:]
+    /// Their one-color marks, for logos that have a clear one.
+    private var marks: [String: NSImage] = [:]
     /// Keys already fetched or being fetched, so a redraw doesn't fetch again.
     @ObservationIgnored private var requestedKeys: Set<String> = []
 
@@ -31,13 +34,31 @@ final class AgentLogoStore {
         return nil
     }
 
+    /// The agent's logo as a one-color template image, or nil while it loads
+    /// and for agents without a logo or a clear mark in it.
+    func mark(forAgentNamed displayName: String) -> Image? {
+        guard let agent = AgentRegistry.definition(displayName: displayName), let homepage = agent.homepage else { return nil }
+        if let mark = marks[agent.key] { return Image(nsImage: mark) }
+        load(agentKey: agent.key, homepage: homepage)
+        return nil
+    }
+
     private func load(agentKey: String, homepage: String) {
         guard requestedKeys.insert(agentKey).inserted else { return }
         Task {
-            guard let data = await Self.logoData(agentKey: agentKey, homepage: homepage),
-                  let image = NSImage(data: data) else { return }
+            guard let loaded = await Self.logoAndMark(agentKey: agentKey, homepage: homepage),
+                  let image = NSImage(data: loaded.logo) else { return }
             logos[agentKey] = image
+            if let markData = loaded.mark, let mark = NSImage(data: markData) {
+                mark.isTemplate = true
+                marks[agentKey] = mark
+            }
         }
+    }
+
+    @concurrent private nonisolated static func logoAndMark(agentKey: String, homepage: String) async -> (logo: Data, mark: Data?)? {
+        guard let logo = await logoData(agentKey: agentKey, homepage: homepage) else { return nil }
+        return (logo, LogoMark.markPNG(fromLogo: logo))
     }
 
     private nonisolated static var cacheDirectoryURL: URL {

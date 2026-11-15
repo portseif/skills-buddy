@@ -17,6 +17,7 @@
 		21F6A74259775B27A545943A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3BA3E61B0518487FE1997F1 /* Assets.xcassets */; };
 		22B36486075E6C15079D1F92 /* Agents.json in Resources */ = {isa = PBXBuildFile; fileRef = D9630D58943CE5A2240F3B42 /* Agents.json */; };
 		33464E55C4B78514319BFD2F /* DisabledSkillStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0605793A39C16B645FA59B /* DisabledSkillStoreTests.swift */; };
+		33BA0744150703F8D2402718 /* LogoMark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E896104AFBDC1CB832E246F /* LogoMark.swift */; };
 		39AD5CB9352E03D968B1F25F /* SkillStatusPill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0006F0ADB9FDFFD2ABCD7DA7 /* SkillStatusPill.swift */; };
 		3D48C0DE15485A3CE641BC7A /* LibrarySidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF59FFDC2D9D2AC303E4530 /* LibrarySidebar.swift */; };
 		3D8617BC487FA9FC218E25E0 /* GitHubSkillSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314C8C36F4195B01CBA112D4 /* GitHubSkillSearch.swift */; };
@@ -45,6 +46,7 @@
 		C8B1CC38C8C5CD17EC60918F /* AppleIntelligenceAdvisor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C702D8D77DFE969DBB4CE0AC /* AppleIntelligenceAdvisor.swift */; };
 		CAC9DBBF9F7442426BB619CF /* FindRepositoriesSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1900AEE9C37F92748F79AA /* FindRepositoriesSheet.swift */; };
 		CB93B19520D10F49236AD3C1 /* SkillRepoMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894403ED580AEF79E962F90E /* SkillRepoMatcher.swift */; };
+		D0A62F10E8F8D02B034A29F3 /* LogoMarkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B42062D6E02FCD192035D0 /* LogoMarkTests.swift */; };
 		D13C7C48698D1B222D1661F5 /* FilterHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48484214B69F1C7520C0C7AA /* FilterHistory.swift */; };
 		D712651683D9B39D902B7A01 /* PreviewSamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9226CAD6CBFF075AD05EE860 /* PreviewSamples.swift */; };
 		DD37996B5DDB3173A0E8EB37 /* SkillsBuddyTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BDE7D1084C5BC3F47CC7C3 /* SkillsBuddyTheme.swift */; };
@@ -75,6 +77,7 @@
 		10960D0C4BE43F18049DEA96 /* SkillInspector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillInspector.swift; sourceTree = "<group>"; };
 		264ECDC1E0AD6FC5870E7CCD /* SkillsBuddyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SkillsBuddyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		276CF80A8177C2AA36678FE5 /* SkillListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillListView.swift; sourceTree = "<group>"; };
+		27B42062D6E02FCD192035D0 /* LogoMarkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoMarkTests.swift; sourceTree = "<group>"; };
 		2A1900AEE9C37F92748F79AA /* FindRepositoriesSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindRepositoriesSheet.swift; sourceTree = "<group>"; };
 		2CDB4CDF8F2A7AD567B0C8E1 /* SkillsBuddyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillsBuddyApp.swift; sourceTree = "<group>"; };
 		314C8C36F4195B01CBA112D4 /* GitHubSkillSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubSkillSearch.swift; sourceTree = "<group>"; };
@@ -85,6 +88,7 @@
 		4B089E54B5F235AE51E5CE3A /* GitClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitClient.swift; sourceTree = "<group>"; };
 		4C547D2A0AA97EDD6D8F9C20 /* SkillsBuddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SkillsBuddy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5617B0DF270CC84E83DB6381 /* SkillLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillLibrary.swift; sourceTree = "<group>"; };
+		5E896104AFBDC1CB832E246F /* LogoMark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoMark.swift; sourceTree = "<group>"; };
 		630A3581F9E1253E6B4D59B0 /* LibraryFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryFilter.swift; sourceTree = "<group>"; };
 		69F86DA5729EF93D89254964 /* SkillHistoryReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillHistoryReader.swift; sourceTree = "<group>"; };
 		6A40014D1C86FE2C0C8AFD2D /* SkillsCLI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillsCLI.swift; sourceTree = "<group>"; };
@@ -159,6 +163,7 @@
 				3B0605793A39C16B645FA59B /* DisabledSkillStoreTests.swift */,
 				779EB4C2C880D0E5DA00E179 /* FilterHistoryTests.swift */,
 				94ABBE1EAC4860944D30455A /* GitTrackingTests.swift */,
+				27B42062D6E02FCD192035D0 /* LogoMarkTests.swift */,
 				3278C644830B247E95457EEA /* OffMainThreadTests.swift */,
 				E7E3E0DA2593376E31CDCB53 /* ParsingTests.swift */,
 				D4EBB99121378B429BE8FB65 /* RepoFinderTests.swift */,
@@ -175,6 +180,7 @@
 				043DD7F8EF0D41030DB201B0 /* DisabledSkillStore.swift */,
 				4B089E54B5F235AE51E5CE3A /* GitClient.swift */,
 				314C8C36F4195B01CBA112D4 /* GitHubSkillSearch.swift */,
+				5E896104AFBDC1CB832E246F /* LogoMark.swift */,
 				0559E5B2818D2367410FACF4 /* OffMainThread.swift */,
 				D518FB885BC6DE494A3089D8 /* ShellEnvironment.swift */,
 				E0F70A2B557D4CCBEF89018B /* SkillFrontmatter.swift */,
@@ -376,6 +382,7 @@
 				33464E55C4B78514319BFD2F /* DisabledSkillStoreTests.swift in Sources */,
 				3F2BBE590E2DB0A73B422E3D /* FilterHistoryTests.swift in Sources */,
 				7DAAD0AF2D62817F3510411E /* GitTrackingTests.swift in Sources */,
+				D0A62F10E8F8D02B034A29F3 /* LogoMarkTests.swift in Sources */,
 				0966827E14315D98A1F32AED /* OffMainThreadTests.swift in Sources */,
 				4BB40367A1DDEDCC42CE9B3E /* ParsingTests.swift in Sources */,
 				E18DD5E370E1769B3A37D3DD /* RepoFinderTests.swift in Sources */,
@@ -402,6 +409,7 @@
 				523F8F0F8F8D1904ACCEDD37 /* InstallSkillSheet.swift in Sources */,
 				E68869A7BAE089CFEC996CF5 /* LibraryFilter.swift in Sources */,
 				3D48C0DE15485A3CE641BC7A /* LibrarySidebar.swift in Sources */,
+				33BA0744150703F8D2402718 /* LogoMark.swift in Sources */,
 				BBAA8C01A55C94A1ABC65BCD /* OffMainThread.swift in Sources */,
 				D712651683D9B39D902B7A01 /* PreviewSamples.swift in Sources */,
 				6FA7F667CDAB655ECD190120 /* RepoFinder.swift in Sources */,
