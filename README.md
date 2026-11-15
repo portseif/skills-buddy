@@ -35,7 +35,7 @@ A native macOS app for the skills your coding agents load. It finds every instal
 Skills Buddy builds against a BlissUI checkout next to it (`../bliss-ui`), since it uses components that aren't in a BlissUI release yet. Clone both into the same folder:
 
 ```bash
-git clone --branch commit-graph https://github.com/portseif/bliss-ui.git
+git clone https://github.com/portseif/bliss-ui.git
 git clone https://github.com/portseif/skills-buddy.git
 open skills-buddy/SkillsBuddy.xcodeproj
 ```
