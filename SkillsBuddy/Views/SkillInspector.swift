@@ -294,6 +294,7 @@ struct SkillInspector: View {
                     }
                 ))
                 .toggleStyle(.flatSwitch)
+                .controlSize(.small)
                 .labelsHidden()
                 .disabled(library.isBusy)
                 if let install {
