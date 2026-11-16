@@ -39,6 +39,7 @@
 		8DCE5491CD2DCE1EE01F572D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA6139D27678FFB5A35D96D /* ContentView.swift */; };
 		8E336EC8401B64CCF2F0E89E /* BlissUI in Frameworks */ = {isa = PBXBuildFile; productRef = 9F7A93FA7549C73AD66C86DB /* BlissUI */; };
 		8F2897DE6F55FCD25FD46717 /* DisabledSkillStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043DD7F8EF0D41030DB201B0 /* DisabledSkillStore.swift */; };
+		92A6B06B9CD0B18A03924E1A /* CommandRunnerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4C9BD9F0BFA1DC71ABA285 /* CommandRunnerTests.swift */; };
 		979C1576C291AD22AFAD8423 /* SkillLockFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24F1BB471E2FACD7B1D4031 /* SkillLockFile.swift */; };
 		A6152A63F862045BC00B127A /* SkillHistoryReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F86DA5729EF93D89254964 /* SkillHistoryReader.swift */; };
 		B9D38FCA5B218F340DE67C55 /* GitClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B089E54B5F235AE51E5CE3A /* GitClient.swift */; };
@@ -111,6 +112,7 @@
 		B8B656A51AA179115B1AFEDA /* HermesSkillFoldersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HermesSkillFoldersTests.swift; sourceTree = "<group>"; };
 		C702D8D77DFE969DBB4CE0AC /* AppleIntelligenceAdvisor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleIntelligenceAdvisor.swift; sourceTree = "<group>"; };
 		C83F3751FE29EA72A92CAFB8 /* SkillUsageReaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillUsageReaderTests.swift; sourceTree = "<group>"; };
+		CB4C9BD9F0BFA1DC71ABA285 /* CommandRunnerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandRunnerTests.swift; sourceTree = "<group>"; };
 		D35FF137132FCBE5582C6B8E /* Skill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Skill.swift; sourceTree = "<group>"; };
 		D4EBB99121378B429BE8FB65 /* RepoFinderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoFinderTests.swift; sourceTree = "<group>"; };
 		D518FB885BC6DE494A3089D8 /* ShellEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShellEnvironment.swift; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 		21A944F12C40D6098FA4F01E /* SkillsBuddyTests */ = {
 			isa = PBXGroup;
 			children = (
+				CB4C9BD9F0BFA1DC71ABA285 /* CommandRunnerTests.swift */,
 				3B0605793A39C16B645FA59B /* DisabledSkillStoreTests.swift */,
 				779EB4C2C880D0E5DA00E179 /* FilterHistoryTests.swift */,
 				94ABBE1EAC4860944D30455A /* GitTrackingTests.swift */,
@@ -372,6 +375,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92A6B06B9CD0B18A03924E1A /* CommandRunnerTests.swift in Sources */,
 				33464E55C4B78514319BFD2F /* DisabledSkillStoreTests.swift in Sources */,
 				3F2BBE590E2DB0A73B422E3D /* FilterHistoryTests.swift in Sources */,
 				7DAAD0AF2D62817F3510411E /* GitTrackingTests.swift in Sources */,

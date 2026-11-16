@@ -82,8 +82,8 @@ nonisolated enum CommandRunner {
                 process.terminationHandler = { finishedProcess in
                     outputPipe.fileHandleForReading.readabilityHandler = nil
                     errorPipe.fileHandleForReading.readabilityHandler = nil
-                    collector.append(outputPipe.fileHandleForReading.readDataToEndOfFile(), isError: false)
-                    collector.append(errorPipe.fileHandleForReading.readDataToEndOfFile(), isError: true)
+                    collector.append(remainingData(in: outputPipe.fileHandleForReading), isError: false)
+                    collector.append(remainingData(in: errorPipe.fileHandleForReading), isError: true)
                     let (standardOutput, standardError) = collector.finish()
                     continuation.resume(returning: CommandResult(
                         exitCode: finishedProcess.terminationStatus,
@@ -104,8 +104,33 @@ nonisolated enum CommandRunner {
                 }
             }
         } onCancel: {
-            if process.isRunning { process.terminate() }
+            guard process.isRunning else { return }
+            process.terminate()
+            // An interactive shell (the login shell `ShellEnvironment` reads PATH
+            // from) ignores SIGTERM, and the continuation above only resumes
+            // once the process exits: kill it if it's still there shortly after.
+            DispatchQueue.global().asyncAfter(deadline: .now() + .seconds(2)) {
+                if process.isRunning { kill(process.processIdentifier, SIGKILL) }
+            }
         }
+    }
+
+    /// What's left in a pipe once its process has exited, without waiting for
+    /// end of file: a child the process left running (a shell's background job)
+    /// can hold the pipe open long after, and `readDataToEndOfFile` would wait
+    /// for it.
+    private static func remainingData(in handle: FileHandle) -> Data {
+        let descriptor = handle.fileDescriptor
+        _ = fcntl(descriptor, F_SETFL, fcntl(descriptor, F_GETFL) | O_NONBLOCK)
+        var data = Data()
+        var buffer = [UInt8](repeating: 0, count: 64 * 1024)
+        while true {
+            // 0 is end of file; -1 with EAGAIN means nothing more right now.
+            let count = read(descriptor, &buffer, buffer.count)
+            guard count > 0 else { break }
+            data.append(buffer, count: count)
+        }
+        return data
     }
 
     /// `run`, stopped with `CommandError.timedOut` after `timeout`.
