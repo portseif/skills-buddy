@@ -74,4 +74,46 @@ struct DisabledSkillStoreTests {
         #expect(store.entries().isEmpty)
         #expect(!FileManager.default.fileExists(atPath: entry.storedPath))
     }
+
+    @Test func scannerFindsNestedHermesSkillsAndRoundTripsOnlyTheSelectedFolder() async throws {
+        defer { try? FileManager.default.removeItem(at: rootURL) }
+        try FileManager.default.createDirectory(at: rootURL, withIntermediateDirectories: true)
+        let home = rootURL.resolvingSymlinksInPath().appending(path: "home")
+        let hermes = home.appending(path: ".hermes/skills")
+        let first = hermes.appending(path: "development/sample")
+        let second = hermes.appending(path: "creative/sample")
+        let shared = home.appending(path: ".claude/skills/shared")
+        for folder in [first, second, shared, hermes.appending(path: "deep/category/other"),
+                       hermes.appending(path: ".hidden/ignored"), first.appending(path: "references/example")] {
+            try makeSkillFolder(at: folder)
+        }
+        try makeSkillFolder(at: hermes.appending(path: "shared"))
+        try FileManager.default.createSymbolicLink(at: hermes.appending(path: "loop"), withDestinationURL: hermes)
+        let environment = ShellEnvironment(variables: ["PATH": ""])
+        let scanner = SkillScanner(homeDirectoryURL: home, git: GitClient(environment: environment),
+                                   cli: SkillsCLI(environment: environment), disabledStore: store)
+
+        let initial = await scanner.scan()
+        #expect(initial.skills.count == 4)
+        #expect(Set(initial.skills.map(\.id)).count == 4)
+        let sharedSkill = try #require(initial.skills.first { $0.folderName == "shared" })
+        #expect(Set(sharedSkill.agents.map(\.displayName)) == ["Claude Code", "Hermes Agent"])
+        let hermesInstall = try #require(sharedSkill.agents.first { $0.displayName == "Hermes Agent" }?.folderURL)
+        #expect(hermesInstall.deletingLastPathComponent().resolvingSymlinksInPath() == hermes.resolvingSymlinksInPath())
+        #expect(hermesInstall.lastPathComponent == "shared")
+        let selected = try #require(initial.skills.first { $0.folderName == "development/sample" })
+        #expect(selected.agents.first?.folderURL?.resolvingSymlinksInPath().path == first.resolvingSymlinksInPath().path)
+        #expect(selected.sourceKind == .local)
+        let entry = try store.disable(itemAt: first, skillName: selected.folderName, agentNames: ["Hermes Agent"])
+
+        let disabled = await scanner.scan()
+        #expect(disabled.skills.count == 4)
+        #expect(disabled.skills.first { $0.id == selected.id }?.isFullyDisabled == true)
+        #expect(disabled.skills.first { $0.folderName == "creative/sample" }?.disabledEntries.isEmpty == true)
+        #expect(FileManager.default.fileExists(atPath: second.appendingPathComponent("SKILL.md").path))
+        try store.enable(entry)
+        let restored = await scanner.scan()
+        #expect(restored.skills.first { $0.id == selected.id }?.agents.first?.folderURL?.resolvingSymlinksInPath().path == first.resolvingSymlinksInPath().path)
+        #expect(restored.skills.allSatisfy { $0.disabledEntries.isEmpty })
+    }
 }

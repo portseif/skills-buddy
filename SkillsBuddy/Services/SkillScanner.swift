@@ -53,6 +53,7 @@ nonisolated struct SkillScanner: Sendable {
         var skills = await concurrentMap(listedFolders) { listed, folderURL in
             await makeSkill(listedSkill: listed, folderURL: folderURL, lockEntries: lockEntries)
         }.compactMap { $0 }
+        await appendHermesSkills(to: &skills, lockEntries: lockEntries)
         let fullyDisabledSkills = await attachDisabledEntries(to: &skills, lockEntries: lockEntries)
         skills += fullyDisabledSkills
 
@@ -93,6 +94,48 @@ nonisolated struct SkillScanner: Sendable {
         }
     }
 
+    private func hermesSkillFolders() -> [URL] {
+        let root = homeDirectoryURL.appending(path: ".hermes/skills")
+        var visited = Set<String>()
+        func walk(_ folder: URL) -> [URL] {
+            let resolved = folder.resolvingSymlinksInPath()
+            guard visited.insert(resolved.standardizedFileURL.path).inserted else { return [] }
+            if FileManager.default.fileExists(atPath: resolved.appendingPathComponent("SKILL.md").path) {
+                return [folder]
+            }
+            let children = (try? FileManager.default.contentsOfDirectory(
+                at: folder, includingPropertiesForKeys: [.isDirectoryKey], options: [.skipsHiddenFiles]
+            )) ?? []
+            return children.sorted { $0.path < $1.path }.flatMap { child -> [URL] in
+                guard (try? child.resolvingSymlinksInPath().resourceValues(forKeys: [.isDirectoryKey]).isDirectory) == true else { return [] }
+                return walk(child)
+            }
+        }
+        return walk(root)
+    }
+
+    private func appendHermesSkills(to skills: inout [Skill], lockEntries: [String: SkillLockEntry]) async {
+        guard let agent = AgentRegistry.definition(key: "hermes-agent") else { return }
+        let root = homeDirectoryURL.appending(path: ".hermes/skills").standardizedFileURL.path + "/"
+        for folder in hermesSkillFolders() {
+            let install = SkillAgentInstall(displayName: agent.displayName, key: agent.key, folderURL: folder)
+            let resolvedPath = folder.resolvingSymlinksInPath().standardizedFileURL.path
+            let relativePath = String(folder.standardizedFileURL.path.dropFirst(root.count))
+            if !relativePath.contains("/"), let index = skills.firstIndex(where: {
+                $0.folderName == relativePath || $0.resolvedFolderURL.standardizedFileURL.path == resolvedPath
+            }) {
+                skills[index].agents.removeAll { $0.displayName == agent.displayName }
+                skills[index].agents.append(install)
+                skills[index].agents.sort { $0.displayName < $1.displayName }
+                continue
+            }
+            let listed = ListedSkill(name: relativePath, path: folder.path, agents: [agent.displayName], status: nil)
+            if let skill = await makeSkill(listedSkill: listed, folderURL: folder, lockEntries: lockEntries, folderName: relativePath) {
+                skills.append(skill)
+            }
+        }
+    }
+
     // MARK: - Disabled skills
 
     /// Attaches Disable's stored entries to the skills still loaded somewhere,
@@ -114,7 +157,7 @@ nonisolated struct SkillScanner: Sendable {
         }
         return await concurrentMap(storedSkills) { stored -> Skill? in
             let listed = ListedSkill(name: stored.name, path: stored.folderURL.path, agents: [], status: nil)
-            guard var skill = await makeSkill(listedSkill: listed, folderURL: stored.folderURL, lockEntries: lockEntries) else { return nil }
+            guard var skill = await makeSkill(listedSkill: listed, folderURL: stored.folderURL, lockEntries: lockEntries, folderName: stored.name) else { return nil }
             skill.disabledEntries = stored.entries
             return skill
         }.compactMap { $0 }
@@ -122,12 +165,12 @@ nonisolated struct SkillScanner: Sendable {
 
     // MARK: - Agent skills
 
-    @concurrent private func makeSkill(listedSkill: ListedSkill, folderURL: URL, lockEntries: [String: SkillLockEntry]) async -> Skill? {
+    @concurrent private func makeSkill(listedSkill: ListedSkill, folderURL: URL, lockEntries: [String: SkillLockEntry], folderName: String? = nil) async -> Skill? {
         let resolvedURL = folderURL.resolvingSymlinksInPath()
         let skillFileURL = resolvedURL.appendingPathComponent("SKILL.md")
         guard FileManager.default.fileExists(atPath: skillFileURL.path) else { return nil }
 
-        let folderName = folderURL.lastPathComponent
+        let folderName = folderName ?? folderURL.lastPathComponent
         let frontmatter = SkillFrontmatter.load(from: skillFileURL)
         let agents = listedSkill.agents.sorted().map { agentName in
             let definition = AgentRegistry.definition(displayName: agentName)
