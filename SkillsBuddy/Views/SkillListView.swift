@@ -200,6 +200,10 @@ struct SkillListView: View {
             ],
             selection: $checkedSkillIDs,
             initialSort: BlissTableSort(columnID: "name"),
+            // Rows build as they scroll in. With every row built up front, a
+            // few hundred skills cost about nine times the main-thread work
+            // per scroll; the sidebar collapse measured no worse lazy.
+            isLazy: true,
             pinsHeader: true,
             // Badges and dates hug their content; the name and repository take
             // the rest and truncate first when the window is narrow.
