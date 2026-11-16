@@ -6,8 +6,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/portseif/bliss-ui.git",
       "state" : {
-        "revision" : "0f961a1e46d7dda40bbbce40b09c5dbf504ceb74",
-        "version" : "2.4.0"
+        "revision" : "f62f386f98d3bd6dddec73b7b0d26c83bfc1b688",
+        "version" : "2.4.1"
       }
     }
   ],
