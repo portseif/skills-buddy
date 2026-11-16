@@ -12,7 +12,7 @@
 
 A native macOS app for the skills your coding agents load. It finds every installed skill — for Claude Code, Codex, Cursor, Gemini CLI and the rest — shows where each one came from, and updates it from there. Built with SwiftUI on [BlissUI](https://github.com/portseif/bliss-ui).
 
-- **Every agent** — reads the skills of all 79 agents the [`skills` CLI](https://github.com/vercel-labs/skills) knows, plus the skills inside Claude Code plugins. A skill several agents share shows up once, with each agent that loads it.
+- **Every agent** — reads the skills of all 79 agents the [`skills` CLI](https://github.com/vercel-labs/skills) knows, plus the skills inside Claude Code plugins and Hermes's category folders. A skill several agents share shows up once, with each agent that loads it.
 - **Where it came from** — each skill is tagged by source: the Skills CLI, a git clone, a plugin, or a local folder with no source at all.
 - **Updates** — check everything at once, then update one skill or all of them. CLI skills update in a single `skills` run, git skills with one pull per clone.
 - **Install** — paste `owner/repo`, a git URL or a GitHub link to a folder, pick the skills you want, and choose which agents get them. Other agents are left alone.

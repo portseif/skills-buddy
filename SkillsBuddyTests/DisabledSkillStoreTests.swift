@@ -84,7 +84,7 @@ struct DisabledSkillStoreTests {
         let second = hermes.appending(path: "creative/sample")
         let shared = home.appending(path: ".claude/skills/shared")
         for folder in [first, second, shared, hermes.appending(path: "deep/category/other"),
-                       hermes.appending(path: ".hidden/ignored"), first.appending(path: "references/example")] {
+                       hermes.appending(path: ".archive/ignored"), first.appending(path: "references/example")] {
             try makeSkillFolder(at: folder)
         }
         try makeSkillFolder(at: hermes.appending(path: "shared"))

@@ -28,6 +28,7 @@
 		4B4739E3185AFD0ADD1E1F6D /* SkillSourceBrowser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F461881AF759704ABA433600 /* SkillSourceBrowser.swift */; };
 		4BB40367A1DDEDCC42CE9B3E /* ParsingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E3E0DA2593376E31CDCB53 /* ParsingTests.swift */; };
 		504B7D38C184157FDBD3A8BD /* SkillListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276CF80A8177C2AA36678FE5 /* SkillListView.swift */; };
+		519FE2CABD7716844A6A3225 /* HermesSkillFoldersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B656A51AA179115B1AFEDA /* HermesSkillFoldersTests.swift */; };
 		523F8F0F8F8D1904ACCEDD37 /* InstallSkillSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE91955A2AF6DCF2FCE97515 /* InstallSkillSheet.swift */; };
 		5DB59DAA530A256C1592D200 /* AgentRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DA022388A3C9FCB96CA864 /* AgentRegistry.swift */; };
 		6FA7F667CDAB655ECD190120 /* RepoFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB51C0B2D3D778F3B9ACC4F /* RepoFinder.swift */; };
@@ -107,6 +108,7 @@
 		AFD0DABBCE644B7425B4ABF7 /* AgentLogoStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentLogoStore.swift; sourceTree = "<group>"; };
 		B24F1BB471E2FACD7B1D4031 /* SkillLockFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillLockFile.swift; sourceTree = "<group>"; };
 		B2A09C404D043ACFAF358A9A /* SkillHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillHistory.swift; sourceTree = "<group>"; };
+		B8B656A51AA179115B1AFEDA /* HermesSkillFoldersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HermesSkillFoldersTests.swift; sourceTree = "<group>"; };
 		C702D8D77DFE969DBB4CE0AC /* AppleIntelligenceAdvisor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleIntelligenceAdvisor.swift; sourceTree = "<group>"; };
 		C83F3751FE29EA72A92CAFB8 /* SkillUsageReaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillUsageReaderTests.swift; sourceTree = "<group>"; };
 		D35FF137132FCBE5582C6B8E /* Skill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Skill.swift; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 				3B0605793A39C16B645FA59B /* DisabledSkillStoreTests.swift */,
 				779EB4C2C880D0E5DA00E179 /* FilterHistoryTests.swift */,
 				94ABBE1EAC4860944D30455A /* GitTrackingTests.swift */,
+				B8B656A51AA179115B1AFEDA /* HermesSkillFoldersTests.swift */,
 				27B42062D6E02FCD192035D0 /* LogoMarkTests.swift */,
 				3278C644830B247E95457EEA /* OffMainThreadTests.swift */,
 				E7E3E0DA2593376E31CDCB53 /* ParsingTests.swift */,
@@ -372,6 +375,7 @@
 				33464E55C4B78514319BFD2F /* DisabledSkillStoreTests.swift in Sources */,
 				3F2BBE590E2DB0A73B422E3D /* FilterHistoryTests.swift in Sources */,
 				7DAAD0AF2D62817F3510411E /* GitTrackingTests.swift in Sources */,
+				519FE2CABD7716844A6A3225 /* HermesSkillFoldersTests.swift in Sources */,
 				D0A62F10E8F8D02B034A29F3 /* LogoMarkTests.swift in Sources */,
 				0966827E14315D98A1F32AED /* OffMainThreadTests.swift in Sources */,
 				4BB40367A1DDEDCC42CE9B3E /* ParsingTests.swift in Sources */,

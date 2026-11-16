@@ -7,6 +7,9 @@
 //  - `skills list -g --json` reports each global skill once, with the agents
 //    that load it (the CLI knows ~80 agents' folders and which are installed).
 //    Without the CLI, it falls back to Claude Code's `~/.claude/skills`.
+//  - The CLI only looks one level down, but Hermes loads skills from category
+//    folders too (`~/.hermes/skills/creative/<name>`); those come from a walk
+//    of its folder that follows Hermes's own rules.
 //  - `~/.agents/.skill-lock.json` says which came from the CLI, and from where.
 //  - A skill folder inside a git clone is a git skill.
 //  - `<plugin installPath>/skills/<name>/SKILL.md` for each Claude Code plugin
@@ -94,24 +97,48 @@ nonisolated struct SkillScanner: Sendable {
         }
     }
 
+    /// Hermes's `EXCLUDED_SKILL_DIRS`: its own state, version control and dependencies.
+    private static let hermesSkippedFolderNames: Set<String> = [
+        ".git", ".github", ".hub", ".archive", ".curator_backups", ".locks", ".hermes-dist",
+        ".venv", "venv", "node_modules", "site-packages", "__pycache__",
+        ".tox", ".nox", ".pytest_cache", ".mypy_cache", ".ruff_cache",
+    ]
+    /// Hermes's `SKILL_SUPPORT_DIRS`: a skill's own files, never searched for skills.
+    private static let skillSupportFolderNames: Set<String> = ["references", "templates", "assets", "scripts"]
+
     private func hermesSkillFolders() -> [URL] {
-        let root = homeDirectoryURL.appending(path: ".hermes/skills")
-        var visited = Set<String>()
-        func walk(_ folder: URL) -> [URL] {
-            let resolved = folder.resolvingSymlinksInPath()
-            guard visited.insert(resolved.standardizedFileURL.path).inserted else { return [] }
-            if FileManager.default.fileExists(atPath: resolved.appendingPathComponent("SKILL.md").path) {
-                return [folder]
+        Self.hermesSkillFolders(in: homeDirectoryURL.appending(path: ".hermes/skills"))
+    }
+
+    /// Every skill folder under `rootURL`, found the way Hermes walks its skills
+    /// folder: any folder with a SKILL.md at any depth, inside another skill
+    /// too, following symlinks, minus Hermes's skipped folders and a skill's
+    /// support folders.
+    static func hermesSkillFolders(in rootURL: URL) -> [URL] {
+        let fileManager = FileManager.default
+        var visitedPaths = Set<String>()
+
+        func walk(_ folderURL: URL, depth: Int) -> [URL] {
+            let resolvedPath = folderURL.resolvingSymlinksInPath().path
+            // A symlink back up the tree would loop forever.
+            guard visitedPaths.insert(resolvedPath).inserted else { return [] }
+            let isSkill = depth > 0 && fileManager.fileExists(atPath: folderURL.appendingPathComponent("SKILL.md").path)
+
+            // Listed by name from the resolved path, since listing a URL doesn't
+            // follow a symlinked folder, and joined to the path as found.
+            let childNames = (try? fileManager.contentsOfDirectory(atPath: resolvedPath)) ?? []
+            let nestedFolders = childNames.sorted().flatMap { childName -> [URL] in
+                guard !hermesSkippedFolderNames.contains(childName),
+                      !(isSkill && skillSupportFolderNames.contains(childName)) else { return [] }
+                let childURL = folderURL.appending(path: childName, directoryHint: .isDirectory)
+                var isDirectory: ObjCBool = false
+                guard fileManager.fileExists(atPath: childURL.path, isDirectory: &isDirectory), isDirectory.boolValue else { return [] }
+                return walk(childURL, depth: depth + 1)
             }
-            let children = (try? FileManager.default.contentsOfDirectory(
-                at: folder, includingPropertiesForKeys: [.isDirectoryKey], options: [.skipsHiddenFiles]
-            )) ?? []
-            return children.sorted { $0.path < $1.path }.flatMap { child -> [URL] in
-                guard (try? child.resolvingSymlinksInPath().resourceValues(forKeys: [.isDirectoryKey]).isDirectory) == true else { return [] }
-                return walk(child)
-            }
+            return (isSkill ? [folderURL] : []) + nestedFolders
         }
-        return walk(root)
+
+        return walk(rootURL, depth: 0)
     }
 
     private func appendHermesSkills(to skills: inout [Skill], lockEntries: [String: SkillLockEntry]) async {
