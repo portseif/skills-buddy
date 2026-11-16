@@ -97,7 +97,7 @@ nonisolated struct Skill: Identifiable, Hashable, Sendable {
     let installedAt: Date?
     let updatedAt: Date?
     /// The agents that load this skill, by display name order.
-    let agents: [SkillAgentInstall]
+    var agents: [SkillAgentInstall]
     /// `name@marketplace` for plugin skills.
     let pluginIdentifier: String?
     /// Plugin version, or the short commit of a git clone.

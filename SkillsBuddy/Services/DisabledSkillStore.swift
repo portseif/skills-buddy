@@ -62,7 +62,7 @@ nonisolated struct DisabledSkillStore: Sendable {
         let id = UUID()
         let holderURL = rootURL.appending(path: id.uuidString, directoryHint: .isDirectory)
         try FileManager.default.createDirectory(at: holderURL, withIntermediateDirectories: true)
-        let storedURL = holderURL.appendingPathComponent(skillName)
+        let storedURL = holderURL.appendingPathComponent(originalURL.lastPathComponent)
         try FileManager.default.moveItem(at: originalURL, to: storedURL)
 
         let entry = DisabledSkillEntry(
