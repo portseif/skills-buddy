@@ -33,4 +33,15 @@ struct FilterHistoryTests {
         #expect(!history.canGoForward)
         #expect(history.canGoBack)
     }
+
+    @Test func backKeepsOnlyTheMostRecentVisits() {
+        var history = FilterHistory()
+        for index in 0..<(FilterHistory.maximumDepth + 25) {
+            history.recordVisit(leaving: .agent("Agent \(index)"))
+        }
+        #expect(history.backStack.count == FilterHistory.maximumDepth)
+        // The newest visit is on top; the oldest 25 dropped off.
+        #expect(history.backStack.last == .agent("Agent \(FilterHistory.maximumDepth + 24)"))
+        #expect(history.backStack.first == .agent("Agent 25"))
+    }
 }

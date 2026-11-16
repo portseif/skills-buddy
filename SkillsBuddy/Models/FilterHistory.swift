@@ -12,12 +12,19 @@ struct FilterHistory: Equatable {
     private(set) var backStack: [LibraryFilter] = []
     private(set) var forwardStack: [LibraryFilter] = []
 
+    /// How far Back reaches; older filters drop off so the stack can't grow
+    /// for as long as the window is open.
+    static let maximumDepth = 50
+
     var canGoBack: Bool { !backStack.isEmpty }
     var canGoForward: Bool { !forwardStack.isEmpty }
 
     /// A filter picked directly (not by Back or Forward).
     mutating func recordVisit(leaving previous: LibraryFilter) {
         backStack.append(previous)
+        if backStack.count > Self.maximumDepth {
+            backStack.removeFirst(backStack.count - Self.maximumDepth)
+        }
         forwardStack.removeAll()
     }
 
