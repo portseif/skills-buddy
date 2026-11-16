@@ -22,6 +22,10 @@ A native macOS app for the skills your coding agents load. It finds every instal
 - **Find repositories** — local skills with no source get matched to their GitHub repo: an identical SKILL.md is found by its git hash, and Apple Intelligence judges the near matches on-device. Attach the repo and the skill updates from there.
 - **Themes** — its own violet theme plus BlissUI's, in Light, Dark or System, with a Violet or Midnight Dock icon.
 
+## Download
+
+Grab the zip from the [latest release](https://github.com/portseif/skills-buddy/releases/latest), unzip it and move **Skills Buddy** to Applications. It's signed with a Developer ID and notarized by Apple, and runs on Apple silicon and Intel Macs.
+
 ## Requirements
 
 - macOS 15 or later (Find Repositories uses Apple Intelligence on macOS 26 when it's turned on, and falls back to exact and close-text matches without it)
