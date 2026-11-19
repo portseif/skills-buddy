@@ -5,8 +5,9 @@
 //  The repo finder's judgment calls, made by Apple's on-device language model
 //  (Foundation Models, macOS 26): search phrases for a skill whose name finds
 //  nothing, and whether a candidate's description is the same skill. Nothing
-//  leaves the Mac. On older systems, or with Apple Intelligence off, the finder
-//  matches identical files and close names only.
+//  leaves the Mac. On older systems, with Apple Intelligence off, or with it
+//  turned off in Settings › Intelligence, the finder matches identical files
+//  and close names only.
 //
 
 import Foundation
@@ -17,7 +18,21 @@ nonisolated enum IntelligenceStatus: Equatable, Sendable {
     case available
     case unavailable(String)
 
-    static var current: IntelligenceStatus {
+    /// Whether Find Repositories may use Apple Intelligence (Settings ›
+    /// Intelligence). Registered as on at launch.
+    static let findRepositoriesKey = "skillsBuddy.intelligence.findRepositories"
+
+    /// What Find Repositories can use: the system's Apple Intelligence, unless
+    /// it's turned off for it in Settings.
+    static var forFindingRepositories: IntelligenceStatus {
+        guard UserDefaults.standard.bool(forKey: findRepositoriesKey) else {
+            return .unavailable("Apple Intelligence is turned off for Find Repositories in Settings.")
+        }
+        return system
+    }
+
+    /// What this Mac allows.
+    static var system: IntelligenceStatus {
         guard #available(macOS 26.0, *) else {
             return .unavailable("Apple Intelligence needs macOS 26 or later.")
         }

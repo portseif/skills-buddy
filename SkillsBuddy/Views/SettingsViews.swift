@@ -7,30 +7,35 @@
 //  Settings…) opens it; ⌘, again or the Back arrow leaves it.
 //
 
+import AppKit
 import BlissUI
 import SwiftUI
 
 /// A settings category: one sidebar row, one page.
 enum SettingsPage: String, CaseIterable, Identifiable, Hashable {
     case appearance
+    case intelligence
 
     var id: Self { self }
 
     var title: LocalizedStringKey {
         switch self {
         case .appearance: "Appearance"
+        case .intelligence: "Intelligence"
         }
     }
 
     var subtitle: LocalizedStringKey {
         switch self {
         case .appearance: "Mode, theme, colors, fonts and motion."
+        case .intelligence: "Apple Intelligence, and what Skills Buddy asks of it."
         }
     }
 
     var icon: String {
         switch self {
         case .appearance: "paintpalette"
+        case .intelligence: "apple.intelligence"
         }
     }
 }
@@ -88,9 +93,16 @@ struct SettingsContent: View {
                         .font(Typography.captionSmall)
                         .foregroundStyle(Color.textSecondary)
                 }
-                AppearanceSettings(dockIcons: DockIconOption.skillsBuddyOptions)
-                    // The page sets the insets; drop the form's window padding.
-                    .environment(\.settingsFormPlain, true)
+                Group {
+                    switch page {
+                    case .appearance:
+                        AppearanceSettings(dockIcons: DockIconOption.skillsBuddyOptions)
+                    case .intelligence:
+                        IntelligenceSettings()
+                    }
+                }
+                // The page sets the insets; drop the form's window padding.
+                .environment(\.settingsFormPlain, true)
             }
             // A readable column, centered in the content panel like a settings page.
             .frame(maxWidth: 640, alignment: .leading)
@@ -102,6 +114,65 @@ struct SettingsContent: View {
         .scrollPosition($scrollPosition)
         .onScrollGeometryChange(for: CGFloat.self, of: { $0.contentOffset.y }) { _, offset in
             scrollMemory.offset = offset
+        }
+        // Another page starts at its top.
+        .onChange(of: page) { _, _ in
+            scrollPosition.scrollTo(edge: .top)
+        }
+    }
+}
+
+/// Whether this Mac has Apple Intelligence, a way to its System Settings pane,
+/// and the switch for its use in Find Repositories.
+struct IntelligenceSettings: View {
+    @AppStorage(IntelligenceStatus.findRepositoriesKey) private var findsRepositoriesWithIntelligence = true
+    /// Read again whenever the app comes back to the front, since Apple
+    /// Intelligence is turned on and off in System Settings.
+    @State private var systemStatus = IntelligenceStatus.system
+    @Environment(\.openURL) private var openURL
+
+    /// The Apple Intelligence & Siri pane (`allowsXAppleSystemPreferencesURLScheme`
+    /// in its extension's Info.plist).
+    private static let systemSettingsURL = URL(string: "x-apple.systempreferences:com.apple.Siri-Settings.extension")!
+
+    private var isAvailable: Bool { systemStatus == .available }
+
+    private var statusDetail: LocalizedStringKey {
+        switch systemStatus {
+        case .available: "Ready on this Mac. Nothing you ask it leaves the Mac."
+        case .unavailable(let reason): .verbatim(reason)
+        }
+    }
+
+    var body: some View {
+        SettingsForm {
+            RoundedSection("Apple Intelligence", divided: true) {
+                SettingsRow("Status", detail: statusDetail) {
+                    StatusPill(isAvailable ? "Available" : "Unavailable", isActive: isAvailable)
+                }
+                // Foundation Models needs macOS 26, so on older systems the pane can't help.
+                if #available(macOS 26.0, *) {
+                    SettingsActionRow(
+                        "Apple Intelligence & Siri",
+                        detail: "Turn Apple Intelligence on or off for this Mac in System Settings.",
+                        systemImage: "arrow.up.right"
+                    ) {
+                        openURL(Self.systemSettingsURL)
+                    }
+                }
+            }
+
+            RoundedSection("Find Repositories") {
+                SettingsToggleRow(
+                    "Use Apple Intelligence",
+                    detail: "Compares descriptions when a copy on GitHub isn't identical, and suggests searches when a skill's name finds nothing. Off, only identical copies and close names are found.",
+                    isOn: $findsRepositoriesWithIntelligence
+                )
+                .disabled(!isAvailable)
+            }
+        }
+        .onReceive(NotificationCenter.default.publisher(for: NSApplication.didBecomeActiveNotification)) { _ in
+            systemStatus = IntelligenceStatus.system
         }
     }
 }
@@ -116,6 +187,12 @@ struct SettingsContent: View {
 
 #Preview("Appearance", traits: .fixedLayout(width: 760, height: 520)) {
     SettingsContent(page: .appearance, scrollMemory: SettingsScrollMemory())
+        .background(Color.contentAreaBackground)
+        .blissTheme()
+}
+
+#Preview("Intelligence", traits: .fixedLayout(width: 760, height: 520)) {
+    SettingsContent(page: .intelligence, scrollMemory: SettingsScrollMemory())
         .background(Color.contentAreaBackground)
         .blissTheme()
 }

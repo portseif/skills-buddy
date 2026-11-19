@@ -23,6 +23,7 @@ struct SkillsBuddyApp: App {
 
     init() {
         BlissTheme.registerSkillsBuddyTheme()
+        UserDefaults.standard.register(defaults: [IntelligenceStatus.findRepositoriesKey: true])
     }
 
     var body: some Scene {

@@ -25,7 +25,7 @@ final class RepoFinder {
     /// Set when the search can't start at all (no `gh`, or signed out).
     private(set) var setupError: String?
     /// Read when a search starts; Apple Intelligence can be turned on or off meanwhile.
-    private(set) var intelligence = IntelligenceStatus.current
+    private(set) var intelligence = IntelligenceStatus.forFindingRepositories
 
     @ObservationIgnored private var scanTask: Task<Void, Never>?
 
@@ -47,7 +47,7 @@ final class RepoFinder {
             return true
         }
         guard !pending.isEmpty else { return }
-        intelligence = IntelligenceStatus.current
+        intelligence = IntelligenceStatus.forFindingRepositories
         setupError = nil
         statuses.merge(pending.map { ($0.id, .waiting) }) { _, waiting in waiting }
         isRunning = true
