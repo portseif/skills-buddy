@@ -13,6 +13,7 @@ Guidance for Claude Code working on **Skills Buddy**, a native macOS SwiftUI app
 ## Releasing
 
 - Bump `MARKETING_VERSION` in `project.yml`, run `xcodegen generate`, commit and push, then `scripts/release.sh notes.md`. Tags have no `v` prefix (`0.1.1`). The script needs a Developer ID Application certificate and a `notarytool` keychain profile, and its git, network and keychain steps fail inside a sandboxed shell.
+- Each release ships the stapled app twice: a zip, and a UDZO disk image with an Applications link, signed under `<bundle id>.dmg` and notarized and stapled on its own (Apple's steps for disk images, so it's two notarizations a release). Notes lead with the `.dmg`. Check a disk image with `spctl --assess --type open --context context:primary-signature`.
 - `SkillsBuddy/Info.plist` says `CFBundleShortVersionString` 1.0, but the build setting wins: the built app reports `MARKETING_VERSION`.
 - The app has no update check for itself. The README's Download link points at the latest GitHub release.
 

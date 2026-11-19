@@ -24,7 +24,7 @@ A native macOS app for the skills your coding agents load. It finds every instal
 
 ## Download
 
-Grab the zip from the [latest release](https://github.com/portseif/skills-buddy/releases/latest), unzip it and move **Skills Buddy** to Applications. It's signed with a Developer ID and notarized by Apple, and runs on Apple silicon and Intel Macs.
+Grab the disk image from the [latest release](https://github.com/portseif/skills-buddy/releases/latest), open it and drag **Skills Buddy** onto Applications — or take the zip, unzip it and move the app there yourself. It's signed with a Developer ID and notarized by Apple, and runs on Apple silicon and Intel Macs.
 
 ## Requirements
 
@@ -54,7 +54,7 @@ The Xcode project is generated from `project.yml` with [XcodeGen](https://github
 
 To work on BlissUI at the same time, add your checkout with **File › Add Package Dependencies › Add Local…** — a local package overrides the 2.0.0 release until you remove it (or `xcodegen generate` does).
 
-To ship a release, bump `MARKETING_VERSION` in `project.yml`, run `xcodegen generate`, commit and push, then run `scripts/release.sh notes.md`. It builds for Apple silicon and Intel, signs with your Developer ID, notarizes and staples the app, and publishes the zip as a GitHub release tagged with the version — leave out the notes file to get a draft you finish on GitHub, or pass `--no-publish` to stop before GitHub. It needs a Developer ID Application certificate and a `notarytool` keychain profile (see the top of the script).
+To ship a release, bump `MARKETING_VERSION` in `project.yml`, run `xcodegen generate`, commit and push, then run `scripts/release.sh notes.md`. It builds for Apple silicon and Intel, signs with your Developer ID, notarizes and staples the app, packs it in a zip and a disk image (signed, notarized and stapled too), and publishes both as a GitHub release tagged with the version — leave out the notes file to get a draft you finish on GitHub, or pass `--no-publish` to stop before GitHub. It needs a Developer ID Application certificate and a `notarytool` keychain profile (see the top of the script).
 
 The app isn't sandboxed: it reads `~/.claude` and `~/.agents`, moves skill folders, and runs `git`, `npx` and `gh`.
 
